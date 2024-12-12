@@ -15,6 +15,7 @@ type
     edPass: TEdit;
     btnLogin: TButton;
     Label1: TLabel;
+    procedure btnLoginClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -25,7 +26,12 @@ var
   fLogin: TfLogin;
 
 implementation
-
+uses admin;
 {$R *.dfm}
+
+procedure TfLogin.btnLoginClick(Sender: TObject);
+begin
+  fAdmin.Show;
+end;
 
 end.

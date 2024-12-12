@@ -15,10 +15,12 @@ object fLogin: TfLogin
   PixelsPerInch = 96
   TextHeight = 13
   object bg: TShape
-    Left = -17
-    Top = -28
-    Width = 1305
-    Height = 675
+    Left = 0
+    Top = 0
+    Width = 1289
+    Height = 636
+    Align = alClient
+    Pen.Color = clWhite
   end
   object lblUname: TLabel
     Left = 551
@@ -32,6 +34,7 @@ object fLogin: TfLogin
     Font.Name = 'Futura Md BT'
     Font.Style = []
     ParentFont = False
+    Transparent = True
   end
   object lblPass: TLabel
     Left = 551
@@ -45,33 +48,35 @@ object fLogin: TfLogin
     Font.Name = 'Futura Md BT'
     Font.Style = []
     ParentFont = False
+    Transparent = True
   end
   object Label1: TLabel
     Left = 509
     Top = 104
-    Width = 255
-    Height = 97
+    Width = 243
+    Height = 64
     Alignment = taCenter
-    Caption = 'Selamat Datang Di'#13#10'Rental Epull'
+    Caption = 'Selamat Datang Di'#13#10'Epull Rental'
     Font.Charset = ANSI_CHARSET
     Font.Color = clBlack
     Font.Height = -27
     Font.Name = 'Poppins SemiBold'
     Font.Style = [fsBold]
     ParentFont = False
+    Transparent = True
   end
   object edUname: TEdit
     Left = 551
     Top = 255
     Width = 169
-    Height = 25
+    Height = 21
     TabOrder = 0
   end
   object edPass: TEdit
     Left = 551
     Top = 327
     Width = 169
-    Height = 25
+    Height = 21
     TabOrder = 1
   end
   object btnLogin: TButton
@@ -81,5 +86,6 @@ object fLogin: TfLogin
     Height = 25
     Caption = 'Login'
     TabOrder = 2
+    OnClick = btnLoginClick
   end
 end
