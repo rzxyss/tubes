@@ -253,19 +253,6 @@ object fAdmin: TfAdmin
         ParentFont = False
         TabOrder = 5
       end
-      object roleAkun: TEdit
-        Left = 264
-        Top = 184
-        Width = 185
-        Height = 34
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clBlack
-        Font.Height = -15
-        Font.Name = 'Poppins'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 6
-      end
       object btnTambahAkun: TButton
         Left = 296
         Top = 232
@@ -277,6 +264,21 @@ object fAdmin: TfAdmin
         Font.Height = -15
         Font.Name = 'Poppins'
         Font.Style = []
+        ParentFont = False
+        TabOrder = 6
+      end
+      object dblRoleAkun: TDBLookupComboBox
+        Left = 264
+        Top = 184
+        Width = 185
+        Height = 34
+        DataField = 'rl_role'
+        DataSource = dm.ds_akun
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Height = -15
+        Font.Name = 'Poppins'
+        Font.Style = [fsItalic]
         ParentFont = False
         TabOrder = 7
       end
@@ -463,19 +465,6 @@ object fAdmin: TfAdmin
         ParentFont = False
         TabOrder = 5
       end
-      object dbeRoleAkun: TDBEdit
-        Left = 264
-        Top = 183
-        Width = 185
-        Height = 34
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clBlack
-        Font.Height = -15
-        Font.Name = 'Poppins'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 6
-      end
     end
     object grid_akun: TSMDBGrid
       Left = 64
@@ -506,7 +495,7 @@ object fAdmin: TfAdmin
       RegistryKey = 'Software\Scalabium'
       RegistrySection = 'SMDBGrid'
       WidthOfIndicator = 11
-      DefaultRowHeight = 24
+      DefaultRowHeight = 17
       ScrollBars = ssHorizontal
       Columns = <
         item
@@ -617,7 +606,7 @@ object fAdmin: TfAdmin
         end
         item
           Expanded = False
-          FieldName = 'role'
+          FieldName = 'rl_role'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
@@ -647,11 +636,11 @@ object fAdmin: TfAdmin
     end
   end
   object pnlKendaraan: TPanel
-    Left = 0
+    Left = 1256
     Top = 88
-    Width = 1289
-    Height = 537
-    BevelOuter = bvNone
+    Width = 33
+    Height = 41
+    BevelOuter = bvLowered
     Color = clSkyBlue
     TabOrder = 4
     object KendaraanTambah: TGroupBox
@@ -810,19 +799,6 @@ object fAdmin: TfAdmin
         ParentFont = False
         TabOrder = 4
       end
-      object statusKendaraan: TEdit
-        Left = 264
-        Top = 120
-        Width = 185
-        Height = 34
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clBlack
-        Font.Height = -15
-        Font.Name = 'Poppins'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 5
-      end
       object btnTambahKendaraan: TButton
         Left = 296
         Top = 232
@@ -834,6 +810,21 @@ object fAdmin: TfAdmin
         Font.Height = -15
         Font.Name = 'Poppins'
         Font.Style = []
+        ParentFont = False
+        TabOrder = 5
+      end
+      object dblStatusKendaraan: TDBLookupComboBox
+        Left = 264
+        Top = 120
+        Width = 185
+        Height = 34
+        DataField = 'rl_skendaraan'
+        DataSource = dm.ds_kendaraan
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Height = -15
+        Font.Name = 'Poppins'
+        Font.Style = [fsItalic]
         ParentFont = False
         TabOrder = 6
       end
@@ -1004,21 +995,6 @@ object fAdmin: TfAdmin
         ParentFont = False
         TabOrder = 4
       end
-      object dbeStatusKendaraan: TDBEdit
-        Left = 264
-        Top = 119
-        Width = 185
-        Height = 34
-        DataField = 'status'
-        DataSource = dm.ds_kendaraan
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clBlack
-        Font.Height = -15
-        Font.Name = 'Poppins'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 5
-      end
     end
     object grid_kendaraan: TSMDBGrid
       Left = 64
@@ -1141,9 +1117,8 @@ object fAdmin: TfAdmin
           Visible = True
         end
         item
-          Alignment = taLeftJustify
           Expanded = False
-          FieldName = 'status'
+          FieldName = 'rl_skendaraan'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
@@ -1173,11 +1148,10 @@ object fAdmin: TfAdmin
     end
   end
   object pnlSewa: TPanel
-    Left = 0
-    Top = 88
-    Width = 1289
-    Height = 537
-    BevelOuter = bvNone
+    Left = 1248
+    Top = 600
+    Width = 41
+    Height = 33
     Color = clSkyBlue
     TabOrder = 5
     object grid_sewa: TSMDBGrid
@@ -1209,7 +1183,7 @@ object fAdmin: TfAdmin
       RegistryKey = 'Software\Scalabium'
       RegistrySection = 'SMDBGrid'
       WidthOfIndicator = 11
-      DefaultRowHeight = 17
+      DefaultRowHeight = 24
       ScrollBars = ssHorizontal
       Columns = <
         item
@@ -1260,5 +1234,16 @@ object fAdmin: TfAdmin
       ShowGlyph = True
       TabOrder = 1
     end
+  end
+  object SMDBNavigator1: TSMDBNavigator
+    Left = 64
+    Top = 568
+    Width = 1140
+    Height = 25
+    DataSource = dm.ds_akun
+    Layout = blGlyphLeft
+    ShowCaption = False
+    ShowGlyph = True
+    TabOrder = 6
   end
 end

@@ -12,6 +12,49 @@ object dm: Tdm
     Params = <>
     Left = 8
     Top = 8
+    object zq_akunid_akun: TStringField
+      FieldName = 'id_akun'
+      Required = True
+      Size = 16
+    end
+    object zq_akunnama: TStringField
+      FieldName = 'nama'
+      Required = True
+      Size = 50
+    end
+    object zq_akunemail: TStringField
+      FieldName = 'email'
+      Required = True
+      Size = 50
+    end
+    object zq_akunno_telp: TStringField
+      FieldName = 'no_telp'
+      Required = True
+      Size = 13
+    end
+    object zq_akunusername: TStringField
+      FieldName = 'username'
+      Required = True
+      Size = 50
+    end
+    object zq_akunpassword: TStringField
+      FieldName = 'password'
+      Required = True
+      Size = 50
+    end
+    object zq_akunid_role: TIntegerField
+      FieldName = 'id_role'
+      Required = True
+    end
+    object zq_akunrl_status: TStringField
+      FieldKind = fkLookup
+      FieldName = 'rl_role'
+      LookupDataSet = zq_role
+      LookupKeyFields = 'id_role'
+      LookupResultField = 'role'
+      KeyFields = 'id_role'
+      Lookup = True
+    end
   end
   object zq_kendaraan: TZQuery
     Connection = fLogin.zconn
@@ -21,6 +64,43 @@ object dm: Tdm
     Params = <>
     Left = 72
     Top = 8
+    object zq_kendaraanid_kendaraan: TStringField
+      FieldName = 'id_kendaraan'
+      Required = True
+      Size = 12
+    end
+    object zq_kendaraanjenis_kendaraan: TStringField
+      FieldName = 'jenis_kendaraan'
+      Required = True
+      Size = 50
+    end
+    object zq_kendaraanmerk_kendaraan: TStringField
+      FieldName = 'merk_kendaraan'
+      Required = True
+      Size = 50
+    end
+    object zq_kendaraanmodel_kendaraan: TStringField
+      FieldName = 'model_kendaraan'
+      Required = True
+      Size = 50
+    end
+    object zq_kendaraantarif: TStringField
+      FieldName = 'tarif'
+      Required = True
+      Size = 50
+    end
+    object zq_kendaraanid_status: TIntegerField
+      FieldName = 'id_status'
+    end
+    object zq_kendaraanrl_skendaraan: TStringField
+      FieldKind = fkLookup
+      FieldName = 'rl_skendaraan'
+      LookupDataSet = zq_status_kendaraan
+      LookupKeyFields = 'id_status'
+      LookupResultField = 'status'
+      KeyFields = 'id_status'
+      Lookup = True
+    end
   end
   object zq_sewa: TZQuery
     Connection = fLogin.zconn
@@ -30,6 +110,46 @@ object dm: Tdm
     Params = <>
     Left = 144
     Top = 8
+    object zq_sewaid_sewa: TStringField
+      FieldName = 'id_sewa'
+      Required = True
+      Size = 50
+    end
+    object zq_sewaid_kendaraan: TStringField
+      FieldName = 'id_kendaraan'
+      Required = True
+      Size = 10
+    end
+    object zq_sewaid_akun: TStringField
+      FieldName = 'id_akun'
+      Required = True
+      Size = 16
+    end
+    object zq_sewatgl_transaksi: TDateField
+      FieldName = 'tgl_transaksi'
+      Required = True
+    end
+    object zq_sewatarif: TStringField
+      FieldName = 'tarif'
+      Required = True
+      Size = 50
+    end
+    object zq_sewalama_sewa: TIntegerField
+      FieldName = 'lama_sewa'
+      Required = True
+    end
+    object zq_sewaid_status: TIntegerField
+      FieldName = 'id_status'
+    end
+    object zq_sewarl_ssewa: TStringField
+      FieldKind = fkLookup
+      FieldName = 'rl_ssewa'
+      LookupDataSet = zq_status_sewa
+      LookupKeyFields = 'id_status'
+      LookupResultField = 'status'
+      KeyFields = 'id_status'
+      Lookup = True
+    end
   end
   object ds_akun: TDataSource
     DataSet = zq_akun
@@ -102,5 +222,32 @@ object dm: Tdm
     WildCard = '%'
     Left = 144
     Top = 176
+  end
+  object zq_role: TZQuery
+    Connection = fLogin.zconn
+    Active = True
+    SQL.Strings = (
+      'SELECT * FROM role')
+    Params = <>
+    Left = 616
+    Top = 128
+  end
+  object zq_status_kendaraan: TZQuery
+    Connection = fLogin.zconn
+    Active = True
+    SQL.Strings = (
+      'SELECT * FROM status_kendaraan')
+    Params = <>
+    Left = 616
+    Top = 8
+  end
+  object zq_status_sewa: TZQuery
+    Connection = fLogin.zconn
+    Active = True
+    SQL.Strings = (
+      'SELECT * FROM status_sewa')
+    Params = <>
+    Left = 616
+    Top = 64
   end
 end

@@ -29,7 +29,6 @@ type
     telpAkun: TEdit;
     usernameAkun: TEdit;
     passwordAkun: TEdit;
-    roleAkun: TEdit;
     btnTambahAkun: TButton;
     AkunEdit: TGroupBox;
     Label9: TLabel;
@@ -45,7 +44,6 @@ type
     dbeTelpAkun: TDBEdit;
     dbeUsernameAkun: TDBEdit;
     dbePasswordAkun: TDBEdit;
-    dbeRoleAkun: TDBEdit;
     grid_akun: TSMDBGrid;
     nav_akun: TSMDBNavigator;
     pnlKendaraan: TPanel;
@@ -61,7 +59,6 @@ type
     merekKendaraan: TEdit;
     modelKendaraan: TEdit;
     rarifKendaraan: TEdit;
-    statusKendaraan: TEdit;
     btnTambahKendaraan: TButton;
     KendaraanEdit: TGroupBox;
     dbeNopolKendaraan: TDBEdit;
@@ -69,7 +66,6 @@ type
     dbeMerekKendaraan: TDBEdit;
     dbeModelKendaraan: TDBEdit;
     dbeTarifKendaraan: TDBEdit;
-    dbeStatusKendaraan: TDBEdit;
     grid_kendaraan: TSMDBGrid;
     nav_kendaraan: TSMDBNavigator;
     Label22: TLabel;
@@ -81,6 +77,9 @@ type
     pnlSewa: TPanel;
     grid_sewa: TSMDBGrid;
     nav_sewa: TSMDBNavigator;
+    dblRoleAkun: TDBLookupComboBox;
+    dblStatusKendaraan: TDBLookupComboBox;
+    SMDBNavigator1: TSMDBNavigator;
     procedure btnAkunClick(Sender: TObject);
     procedure btnKendaraanClick(Sender: TObject);
     procedure btnSewaClick(Sender: TObject);
