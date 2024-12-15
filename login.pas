@@ -4,17 +4,17 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, ExtCtrls;
+  Dialogs, StdCtrls, ExtCtrls, ZAbstractConnection, ZConnection;
 
 type
   TfLogin = class(TForm)
-    bg: TShape;
     lblUname: TLabel;
     lblPass: TLabel;
     edUname: TEdit;
     edPass: TEdit;
     btnLogin: TButton;
     Label1: TLabel;
+    zconn: TZConnection;
     procedure btnLoginClick(Sender: TObject);
   private
     { Private declarations }
