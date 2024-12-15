@@ -45,7 +45,10 @@ type
     zq_sewatarif: TStringField;
     zq_sewalama_sewa: TIntegerField;
     zq_sewaid_status: TIntegerField;
-    zq_sewarl_ssewa: TStringField;
+    zq_sewarl_akun: TStringField;
+    zq_sewarl_kendaraan: TStringField;
+    zq_sewarl_status: TStringField;
+    zq_login: TZQuery;
   private
     { Private declarations }
   public

@@ -141,9 +141,27 @@ object dm: Tdm
     object zq_sewaid_status: TIntegerField
       FieldName = 'id_status'
     end
-    object zq_sewarl_ssewa: TStringField
+    object zq_sewarl_akun: TStringField
       FieldKind = fkLookup
-      FieldName = 'rl_ssewa'
+      FieldName = 'rl_akun'
+      LookupDataSet = zq_akun
+      LookupKeyFields = 'id_akun'
+      LookupResultField = 'nama'
+      KeyFields = 'id_akun'
+      Lookup = True
+    end
+    object zq_sewarl_kendaraan: TStringField
+      FieldKind = fkLookup
+      FieldName = 'rl_kendaraan'
+      LookupDataSet = zq_kendaraan
+      LookupKeyFields = 'id_kendaraan'
+      LookupResultField = 'merk_kendaraan'
+      KeyFields = 'id_kendaraan'
+      Lookup = True
+    end
+    object zq_sewarl_status: TStringField
+      FieldKind = fkLookup
+      FieldName = 'rl_status'
       LookupDataSet = zq_status_sewa
       LookupKeyFields = 'id_status'
       LookupResultField = 'status'
@@ -249,5 +267,12 @@ object dm: Tdm
     Params = <>
     Left = 616
     Top = 64
+  end
+  object zq_login: TZQuery
+    SQL.Strings = (
+      'SELECT * FROM akun')
+    Params = <>
+    Left = 616
+    Top = 184
   end
 end

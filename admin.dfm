@@ -12,6 +12,7 @@ object fAdmin: TfAdmin
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object bgNav: TShape
@@ -33,6 +34,45 @@ object fAdmin: TfAdmin
     Font.Color = clBlack
     Font.Height = -21
     Font.Name = 'Poppins SemiBold'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object lblAkun: TLabel
+    Left = 208
+    Top = 24
+    Width = 139
+    Height = 32
+    Caption = 'Data Akun'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clBlack
+    Font.Height = -27
+    Font.Name = 'Century Gothic'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object lblKendaraan: TLabel
+    Left = 208
+    Top = 24
+    Width = 218
+    Height = 32
+    Caption = 'Data Kendaraan'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clBlack
+    Font.Height = -27
+    Font.Name = 'Century Gothic'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object lblSewa: TLabel
+    Left = 208
+    Top = 24
+    Width = 142
+    Height = 32
+    Caption = 'Data Sewa'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clBlack
+    Font.Height = -27
+    Font.Name = 'Century Gothic'
     Font.Style = [fsBold]
     ParentFont = False
   end
@@ -67,7 +107,7 @@ object fAdmin: TfAdmin
     Left = 0
     Top = 88
     Width = 1273
-    Height = 481
+    Height = 545
     BevelOuter = bvNone
     Color = clSkyBlue
     TabOrder = 3
@@ -266,6 +306,7 @@ object fAdmin: TfAdmin
         Font.Style = []
         ParentFont = False
         TabOrder = 6
+        OnClick = btnTambahAkunClick
       end
       object dblRoleAkun: TDBLookupComboBox
         Left = 264
@@ -392,6 +433,8 @@ object fAdmin: TfAdmin
         Top = 56
         Width = 185
         Height = 34
+        DataField = 'id_akun'
+        DataSource = dm.ds_akun
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlack
         Font.Height = -15
@@ -405,6 +448,8 @@ object fAdmin: TfAdmin
         Top = 120
         Width = 185
         Height = 34
+        DataField = 'nama'
+        DataSource = dm.ds_akun
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlack
         Font.Height = -15
@@ -418,6 +463,8 @@ object fAdmin: TfAdmin
         Top = 184
         Width = 185
         Height = 34
+        DataField = 'email'
+        DataSource = dm.ds_akun
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlack
         Font.Height = -15
@@ -431,6 +478,8 @@ object fAdmin: TfAdmin
         Top = 248
         Width = 185
         Height = 34
+        DataField = 'no_telp'
+        DataSource = dm.ds_akun
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlack
         Font.Height = -15
@@ -444,6 +493,8 @@ object fAdmin: TfAdmin
         Top = 55
         Width = 185
         Height = 34
+        DataField = 'username'
+        DataSource = dm.ds_akun
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlack
         Font.Height = -15
@@ -457,6 +508,8 @@ object fAdmin: TfAdmin
         Top = 119
         Width = 185
         Height = 34
+        DataField = 'password'
+        DataSource = dm.ds_akun
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlack
         Font.Height = -15
@@ -626,7 +679,7 @@ object fAdmin: TfAdmin
     object nav_akun: TSMDBNavigator
       Left = 64
       Top = 512
-      Width = 1140
+      Width = 1130
       Height = 25
       DataSource = dm.ds_akun
       Layout = blGlyphLeft
@@ -636,11 +689,11 @@ object fAdmin: TfAdmin
     end
   end
   object pnlKendaraan: TPanel
-    Left = 1256
+    Left = 0
     Top = 88
-    Width = 33
-    Height = 41
-    BevelOuter = bvLowered
+    Width = 1289
+    Height = 545
+    BevelOuter = bvNone
     Color = clSkyBlue
     TabOrder = 4
     object KendaraanTambah: TGroupBox
@@ -786,7 +839,7 @@ object fAdmin: TfAdmin
         ParentFont = False
         TabOrder = 3
       end
-      object rarifKendaraan: TEdit
+      object tarifKendaraan: TEdit
         Left = 264
         Top = 56
         Width = 185
@@ -812,6 +865,7 @@ object fAdmin: TfAdmin
         Font.Style = []
         ParentFont = False
         TabOrder = 5
+        OnClick = btnTambahKendaraanClick
       end
       object dblStatusKendaraan: TDBLookupComboBox
         Left = 264
@@ -1148,10 +1202,11 @@ object fAdmin: TfAdmin
     end
   end
   object pnlSewa: TPanel
-    Left = 1248
-    Top = 600
-    Width = 41
-    Height = 33
+    Left = 0
+    Top = 88
+    Width = 1289
+    Height = 545
+    BevelOuter = bvNone
     Color = clSkyBlue
     TabOrder = 5
     object grid_sewa: TSMDBGrid
@@ -1183,43 +1238,116 @@ object fAdmin: TfAdmin
       RegistryKey = 'Software\Scalabium'
       RegistrySection = 'SMDBGrid'
       WidthOfIndicator = 11
-      DefaultRowHeight = 24
+      DefaultRowHeight = 17
       ScrollBars = ssHorizontal
       Columns = <
         item
           Expanded = False
+          FieldName = 'id_sewa'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Poppins'
+          Font.Style = []
+          Title.Alignment = taCenter
+          Title.Caption = 'ID Sewa'
+          Title.Font.Charset = DEFAULT_CHARSET
+          Title.Font.Color = clWindowText
+          Title.Font.Height = -11
+          Title.Font.Name = 'Poppins'
+          Title.Font.Style = []
+          Width = 100
           Visible = True
         end
         item
           Expanded = False
+          FieldName = 'id_kendaraan'
+          Title.Alignment = taCenter
+          Title.Caption = 'Nomor Polisi'
+          Title.Font.Charset = DEFAULT_CHARSET
+          Title.Font.Color = clWindowText
+          Title.Font.Height = -11
+          Title.Font.Name = 'Poppins'
+          Title.Font.Style = []
+          Width = 150
           Visible = True
         end
         item
           Expanded = False
+          FieldName = 'rl_akun'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Poppins'
+          Font.Style = []
+          Title.Alignment = taCenter
+          Title.Caption = 'Nama Penyewa'
+          Title.Font.Charset = DEFAULT_CHARSET
+          Title.Font.Color = clWindowText
+          Title.Font.Height = -11
+          Title.Font.Name = 'Poppins'
+          Title.Font.Style = []
+          Width = 150
           Visible = True
         end
         item
           Expanded = False
+          FieldName = 'rl_kendaraan'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Poppins'
+          Font.Style = []
+          Title.Alignment = taCenter
+          Title.Caption = 'Merk Kendaran'
+          Title.Font.Charset = DEFAULT_CHARSET
+          Title.Font.Color = clWindowText
+          Title.Font.Height = -11
+          Title.Font.Name = 'Poppins'
+          Title.Font.Style = []
           Visible = True
         end
         item
           Expanded = False
+          FieldName = 'tarif'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Poppins'
+          Font.Style = []
+          Title.Alignment = taCenter
+          Title.Caption = 'Tarif Sewa'
+          Title.Font.Charset = DEFAULT_CHARSET
+          Title.Font.Color = clWindowText
+          Title.Font.Height = -11
+          Title.Font.Name = 'Poppins'
+          Title.Font.Style = []
+          Width = 150
           Visible = True
         end
         item
           Expanded = False
+          FieldName = 'tgl_transaksi'
+          Title.Alignment = taCenter
+          Title.Caption = 'Tanggal Sewa'
+          Title.Font.Charset = DEFAULT_CHARSET
+          Title.Font.Color = clWindowText
+          Title.Font.Height = -11
+          Title.Font.Name = 'Poppins'
+          Title.Font.Style = []
+          Width = 150
           Visible = True
         end
         item
           Expanded = False
-          Visible = True
-        end
-        item
-          Expanded = False
-          Visible = True
-        end
-        item
-          Expanded = False
+          FieldName = 'rl_status'
+          Title.Alignment = taCenter
+          Title.Caption = 'Status Sewa'
+          Title.Font.Charset = DEFAULT_CHARSET
+          Title.Font.Color = clWindowText
+          Title.Font.Height = -11
+          Title.Font.Name = 'Poppins'
+          Title.Font.Style = []
           Visible = True
         end>
     end
@@ -1234,16 +1362,5 @@ object fAdmin: TfAdmin
       ShowGlyph = True
       TabOrder = 1
     end
-  end
-  object SMDBNavigator1: TSMDBNavigator
-    Left = 64
-    Top = 568
-    Width = 1140
-    Height = 25
-    DataSource = dm.ds_akun
-    Layout = blGlyphLeft
-    ShowCaption = False
-    ShowGlyph = True
-    TabOrder = 6
   end
 end
