@@ -269,10 +269,23 @@ object dm: Tdm
     Top = 64
   end
   object zq_login: TZQuery
+    Connection = fLogin.zconn
+    Active = True
     SQL.Strings = (
       'SELECT * FROM akun')
     Params = <>
     Left = 616
     Top = 184
+  end
+  object zq_user: TZQuery
+    Connection = fLogin.zconn
+    Params = <>
+    Left = 224
+    Top = 8
+  end
+  object ds_user: TDataSource
+    DataSet = zq_user
+    Left = 224
+    Top = 64
   end
 end

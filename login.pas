@@ -26,77 +26,50 @@ var
   fLogin: TfLogin;
 
 implementation
-uses admin, user, DataModul;
+uses admin, user, DataModul, GlobalUnit;
 {$R *.dfm}
 
 procedure TfLogin.btnLoginClick(Sender: TObject);
-var
-  UserID, UserRole, PenggunaID: Integer;
-  sql: string;
 begin
-  // Validasi input
-  if (Trim(edUname.Text) = '') or (Trim(edPass.Text) = '') then
-  begin
-    ShowMessage('Username dan Password harus diisi!');
-    if Trim(edUname.Text) = '' then
-      edUname.SetFocus
-    else
-      edPass.SetFocus;
-    Exit;
-  end;
-
   try
-    
     with dm.zq_login do
     begin
       Close;
       SQL.Clear;
-      SQL.Add('SELECT id_akun, id_role FROM akun WHERE username = :username AND password = :password');
-      Params.ParamByName('username').AsString := Trim(edUname.Text);
-      Params.ParamByName('password').AsString := Trim(edPass.Text);
+      SQL.Add('SELECT * FROM akun');
+      SQL.Add('WHERE username = :username AND password = :password');
+      Params.ParamByName('username').Value := edUname.Text;
+      Params.ParamByName('password').Value := edPass.Text;
       Open;
 
       if not IsEmpty then
       begin
-        UserID := FieldByName('id').AsInteger;
-        UserRole := FieldByName('role').AsInteger;
+        userId := FieldByName('id_akun').AsString;
+        roleId := FieldByName('id_role').AsInteger;
+        username := FieldByName('username').AsString;
 
-        if UserRole = 1 then
+        if roleId = 1 then
         begin
           fAdmin.Show;
           Self.Hide;
         end
-        else if UserRole = 2 then
+        else if roleId = 2 then
         begin
-          Close;
-          SQL.Clear;
-          SQL.Add('SELECT id_akun FROM akun WHERE id_akun = :user_id');
-          Params.ParamByName('user_id').AsInteger := UserID;
-          Open;
-
-          if not IsEmpty then
-          begin
-            PenggunaID := FieldByName('id').AsInteger;
-            fUser.Show;
-            Self.Hide;
-          end
-          else
-          begin
-            ShowMessage('Data pengguna tidak ditemukan!');
-            Exit;
-          end;
+          fUser.Show;
+          Self.Hide;
         end;
       end
       else
       begin
         ShowMessage('Username atau Password salah!');
         edUname.Clear;
-        edPass.SetFocus;
+        edPass.Clear;
+        edUname.SetFocus;
       end;
     end;
   except
     on E: Exception do
-      ShowMessage('Error: ' + E.Message);
+      ShowMessage('Terjadi kesalahan: ' + E.Message);
   end;
 end;
 

@@ -49,6 +49,8 @@ type
     zq_sewarl_kendaraan: TStringField;
     zq_sewarl_status: TStringField;
     zq_login: TZQuery;
+    zq_user: TZQuery;
+    ds_user: TDataSource;
   private
     { Private declarations }
   public
