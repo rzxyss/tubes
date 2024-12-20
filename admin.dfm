@@ -1,6 +1,6 @@
 object fAdmin: TfAdmin
-  Left = 197
-  Top = 136
+  Left = 213
+  Top = 127
   Width = 1305
   Height = 675
   Caption = 'AdminPanel'

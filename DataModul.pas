@@ -35,22 +35,37 @@ type
     zq_kendaraanjenis_kendaraan: TStringField;
     zq_kendaraanmerk_kendaraan: TStringField;
     zq_kendaraanmodel_kendaraan: TStringField;
-    zq_kendaraantarif: TStringField;
     zq_kendaraanid_status: TIntegerField;
     zq_kendaraanrl_skendaraan: TStringField;
-    zq_sewaid_sewa: TStringField;
-    zq_sewaid_kendaraan: TStringField;
-    zq_sewaid_akun: TStringField;
-    zq_sewatgl_transaksi: TDateField;
-    zq_sewatarif: TStringField;
-    zq_sewalama_sewa: TIntegerField;
-    zq_sewaid_status: TIntegerField;
     zq_sewarl_akun: TStringField;
-    zq_sewarl_kendaraan: TStringField;
     zq_sewarl_status: TStringField;
     zq_login: TZQuery;
     zq_user: TZQuery;
     ds_user: TDataSource;
+    zq_sewarl_kendaraan: TStringField;
+    zq_sewaid_sewa: TStringField;
+    zq_sewaid_kendaraan: TStringField;
+    zq_sewaid_akun: TStringField;
+    zq_sewatgl_transaksi: TDateField;
+    zq_sewalama_sewa: TIntegerField;
+    zq_sewaid_status: TIntegerField;
+    zq_sewates_rl_kendaraan: TStringField;
+    zq_tarif: TZQuery;
+    zq_sewatarif: TFloatField;
+    zq_kendaraantarif: TFloatField;
+    zq_riwayat: TZQuery;
+    ds_riwayat: TDataSource;
+    zq_riwayatid_sewa: TStringField;
+    zq_riwayatid_kendaraan: TStringField;
+    zq_riwayatid_akun: TStringField;
+    zq_riwayattgl_transaksi: TDateField;
+    zq_riwayattarif: TFloatField;
+    zq_riwayatlama_sewa: TIntegerField;
+    zq_riwayatid_status: TIntegerField;
+    zq_riwayatrl_jenis_kendaraan: TStringField;
+    zq_riwayatrl_merk_kendaraan: TStringField;
+    zq_riwayatrl_model_kendaraan: TStringField;
+    zq_riwayatrl_status_sewa: TStringField;
   private
     { Private declarations }
   public

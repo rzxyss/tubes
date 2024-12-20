@@ -84,10 +84,9 @@ object dm: Tdm
       Required = True
       Size = 50
     end
-    object zq_kendaraantarif: TStringField
+    object zq_kendaraantarif: TFloatField
       FieldName = 'tarif'
       Required = True
-      Size = 50
     end
     object zq_kendaraanid_status: TIntegerField
       FieldName = 'id_status'
@@ -129,10 +128,9 @@ object dm: Tdm
       FieldName = 'tgl_transaksi'
       Required = True
     end
-    object zq_sewatarif: TStringField
+    object zq_sewatarif: TFloatField
       FieldName = 'tarif'
       Required = True
-      Size = 50
     end
     object zq_sewalama_sewa: TIntegerField
       FieldName = 'lama_sewa'
@@ -141,21 +139,12 @@ object dm: Tdm
     object zq_sewaid_status: TIntegerField
       FieldName = 'id_status'
     end
-    object zq_sewarl_akun: TStringField
-      FieldKind = fkLookup
-      FieldName = 'rl_akun'
-      LookupDataSet = zq_akun
-      LookupKeyFields = 'id_akun'
-      LookupResultField = 'nama'
-      KeyFields = 'id_akun'
-      Lookup = True
-    end
     object zq_sewarl_kendaraan: TStringField
       FieldKind = fkLookup
       FieldName = 'rl_kendaraan'
       LookupDataSet = zq_kendaraan
       LookupKeyFields = 'id_kendaraan'
-      LookupResultField = 'merk_kendaraan'
+      LookupResultField = 'model_kendaraan'
       KeyFields = 'id_kendaraan'
       Lookup = True
     end
@@ -166,6 +155,24 @@ object dm: Tdm
       LookupKeyFields = 'id_status'
       LookupResultField = 'status'
       KeyFields = 'id_status'
+      Lookup = True
+    end
+    object zq_sewarl_akun: TStringField
+      FieldKind = fkLookup
+      FieldName = 'rl_akun'
+      LookupDataSet = zq_akun
+      LookupKeyFields = 'id_akun'
+      LookupResultField = 'nama'
+      KeyFields = 'id_akun'
+      Lookup = True
+    end
+    object zq_sewates_rl_kendaraan: TStringField
+      FieldKind = fkLookup
+      FieldName = 'tes_rl_kendaraan'
+      LookupDataSet = zq_kendaraan
+      LookupKeyFields = 'id_kendaraan'
+      LookupResultField = 'id_kendaraan'
+      KeyFields = 'id_kendaraan'
       Lookup = True
     end
   end
@@ -286,6 +293,94 @@ object dm: Tdm
   object ds_user: TDataSource
     DataSet = zq_user
     Left = 224
+    Top = 64
+  end
+  object zq_tarif: TZQuery
+    Connection = fLogin.zconn
+    Active = True
+    SQL.Strings = (
+      'SELECT * FROM role')
+    Params = <>
+    Left = 616
+    Top = 240
+  end
+  object zq_riwayat: TZQuery
+    Connection = fLogin.zconn
+    SQL.Strings = (
+      'SELECT * FROM sewa')
+    Params = <>
+    Left = 304
+    Top = 8
+    object zq_riwayatid_sewa: TStringField
+      FieldName = 'id_sewa'
+      Required = True
+      Size = 50
+    end
+    object zq_riwayatid_kendaraan: TStringField
+      FieldName = 'id_kendaraan'
+      Required = True
+      Size = 10
+    end
+    object zq_riwayatid_akun: TStringField
+      FieldName = 'id_akun'
+      Required = True
+      Size = 16
+    end
+    object zq_riwayattgl_transaksi: TDateField
+      FieldName = 'tgl_transaksi'
+      Required = True
+    end
+    object zq_riwayattarif: TFloatField
+      FieldName = 'tarif'
+      Required = True
+    end
+    object zq_riwayatlama_sewa: TIntegerField
+      FieldName = 'lama_sewa'
+      Required = True
+    end
+    object zq_riwayatid_status: TIntegerField
+      FieldName = 'id_status'
+    end
+    object zq_riwayatrl_jenis_kendaraan: TStringField
+      FieldKind = fkLookup
+      FieldName = 'rl_jenis_kendaraan'
+      LookupDataSet = zq_kendaraan
+      LookupKeyFields = 'id_kendaraan'
+      LookupResultField = 'jenis_kendaraan'
+      KeyFields = 'id_kendaraan'
+      Lookup = True
+    end
+    object zq_riwayatrl_merk_kendaraan: TStringField
+      FieldKind = fkLookup
+      FieldName = 'rl_merk_kendaraan'
+      LookupDataSet = zq_kendaraan
+      LookupKeyFields = 'id_kendaraan'
+      LookupResultField = 'merk_kendaraan'
+      KeyFields = 'id_kendaraan'
+      Lookup = True
+    end
+    object zq_riwayatrl_model_kendaraan: TStringField
+      FieldKind = fkLookup
+      FieldName = 'rl_model_kendaraan'
+      LookupDataSet = zq_kendaraan
+      LookupKeyFields = 'id_kendaraan'
+      LookupResultField = 'model_kendaraan'
+      KeyFields = 'id_kendaraan'
+      Lookup = True
+    end
+    object zq_riwayatrl_status_sewa: TStringField
+      FieldKind = fkLookup
+      FieldName = 'rl_status_sewa'
+      LookupDataSet = zq_status_sewa
+      LookupKeyFields = 'id_status'
+      LookupResultField = 'status'
+      KeyFields = 'id_sewa'
+      Lookup = True
+    end
+  end
+  object ds_riwayat: TDataSource
+    DataSet = zq_riwayat
+    Left = 304
     Top = 64
   end
 end

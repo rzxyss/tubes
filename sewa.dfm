@@ -1,6 +1,6 @@
 object fSewa: TfSewa
-  Left = 192
-  Top = 125
+  Left = -1
+  Top = 153
   Width = 1305
   Height = 675
   Caption = 'Sewa Kendaraan'
