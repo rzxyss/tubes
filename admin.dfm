@@ -548,7 +548,7 @@ object fAdmin: TfAdmin
       RegistryKey = 'Software\Scalabium'
       RegistrySection = 'SMDBGrid'
       WidthOfIndicator = 11
-      DefaultRowHeight = 17
+      DefaultRowHeight = 24
       ScrollBars = ssHorizontal
       Columns = <
         item
@@ -1209,6 +1209,19 @@ object fAdmin: TfAdmin
     BevelOuter = bvNone
     Color = clSkyBlue
     TabOrder = 5
+    object Label28: TLabel
+      Left = 64
+      Top = 296
+      Width = 211
+      Height = 34
+      Caption = 'Update Status Sewa'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clBlack
+      Font.Height = -19
+      Font.Name = 'Poppins Medium'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
     object grid_sewa: TSMDBGrid
       Left = 64
       Top = 48
@@ -1328,6 +1341,11 @@ object fAdmin: TfAdmin
         item
           Expanded = False
           FieldName = 'tgl_transaksi'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Poppins'
+          Font.Style = []
           Title.Alignment = taCenter
           Title.Caption = 'Tanggal Sewa'
           Title.Font.Charset = DEFAULT_CHARSET
@@ -1341,6 +1359,11 @@ object fAdmin: TfAdmin
         item
           Expanded = False
           FieldName = 'rl_status'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Poppins'
+          Font.Style = []
           Title.Alignment = taCenter
           Title.Caption = 'Status Sewa'
           Title.Font.Charset = DEFAULT_CHARSET

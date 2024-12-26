@@ -58,7 +58,6 @@ object dm: Tdm
   end
   object zq_kendaraan: TZQuery
     Connection = fLogin.zconn
-    Active = True
     SQL.Strings = (
       'SELECT * FROM kendaraan ORDER BY id_kendaraan')
     Params = <>
@@ -103,7 +102,6 @@ object dm: Tdm
   end
   object zq_sewa: TZQuery
     Connection = fLogin.zconn
-    Active = True
     SQL.Strings = (
       'SELECT * FROM sewa ORDER BY id_sewa')
     Params = <>

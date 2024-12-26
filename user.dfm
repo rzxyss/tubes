@@ -1,6 +1,6 @@
 object fUser: TfUser
-  Left = 356
-  Top = 87
+  Left = 291
+  Top = 168
   Width = 1305
   Height = 675
   Caption = 'Pull Rental'
@@ -92,7 +92,7 @@ object fUser: TfUser
       Left = 16
       Top = 32
       Width = 1297
-      Height = 489
+      Height = 473
       DataSource = dm.ds_riwayat
       Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit]
       TabOrder = 0
@@ -152,6 +152,7 @@ object fUser: TfUser
           Title.Font.Height = -11
           Title.Font.Name = 'Poppins'
           Title.Font.Style = []
+          Width = 64
           Visible = True
         end
         item
@@ -169,6 +170,7 @@ object fUser: TfUser
           Title.Font.Height = -11
           Title.Font.Name = 'Poppins'
           Title.Font.Style = []
+          Width = 64
           Visible = True
         end
         item
@@ -181,6 +183,7 @@ object fUser: TfUser
           Font.Style = []
           Title.Alignment = taCenter
           Title.Caption = 'Modal Kendaraan'
+          Width = 64
           Visible = True
         end
         item
@@ -234,8 +237,21 @@ object fUser: TfUser
           Title.Font.Height = -11
           Title.Font.Name = 'Poppins'
           Title.Font.Style = []
+          Width = 64
           Visible = True
         end>
+    end
+    object nav_riwayat: TSMDBNavigator
+      Left = 16
+      Top = 504
+      Width = 190
+      Height = 25
+      DataSource = dm.ds_riwayat
+      VisibleButtons = [sbFirst, sbPrior, sbNext, sbLast, sbRefresh]
+      Layout = blGlyphLeft
+      ShowCaption = False
+      ShowGlyph = True
+      TabOrder = 1
     end
   end
   object pnlSewa: TPanel

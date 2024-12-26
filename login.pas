@@ -16,6 +16,7 @@ type
     Label1: TLabel;
     zconn: TZConnection;
     procedure btnLoginClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -71,6 +72,11 @@ begin
     on E: Exception do
       ShowMessage('Terjadi kesalahan: ' + E.Message);
   end;
+end;
+
+procedure TfLogin.FormShow(Sender: TObject);
+begin
+  dm.TabelAktif(True);
 end;
 
 end.

@@ -26,6 +26,7 @@ type
     tgl_sewa: TDateTimePicker;
     tgl_selesai: TDateTimePicker;
     lblRiwayat: TLabel;
+    nav_riwayat: TSMDBNavigator;
     procedure FormShow(Sender: TObject);
     procedure btnTambahAkunClick(Sender: TObject);
     procedure btnRiwayatClick(Sender: TObject);
@@ -46,6 +47,7 @@ uses login, DataModul, GlobalUnit;
 
 procedure TfUser.FormShow(Sender: TObject);
 begin
+  dm.TabelAktif(True);
   pnlRiwayat.Visible := True;
   pnlSewa.Visible := False;
   lblRiwayat.Visible := True;

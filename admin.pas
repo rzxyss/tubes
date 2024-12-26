@@ -82,6 +82,7 @@ type
     lblAkun: TLabel;
     lblKendaraan: TLabel;
     lblSewa: TLabel;
+    Label28: TLabel;
     procedure btnAkunClick(Sender: TObject);
     procedure btnKendaraanClick(Sender: TObject);
     procedure btnSewaClick(Sender: TObject);
@@ -274,6 +275,7 @@ end;
 
 procedure TfAdmin.FormShow(Sender: TObject);
 begin
+  dm.TabelAktif(True);
   pnlAkun.Visible := True;
   pnlKendaraan.Visible := False;
   pnlSewa.Visible := False;

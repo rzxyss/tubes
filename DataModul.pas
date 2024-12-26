@@ -70,6 +70,7 @@ type
     { Private declarations }
   public
     { Public declarations }
+    procedure TabelAktif(b: Boolean);
   end;
 
 var
@@ -78,5 +79,18 @@ var
 implementation
 uses login;
 {$R *.dfm}
+
+procedure Tdm.TabelAktif(b: Boolean);
+begin
+  zq_kendaraan.Active := b;
+  zq_status_kendaraan.Active := b;
+  zq_akun.Active := b;
+  zq_sewa.Active := b;
+  zq_riwayat.Active := b;
+  zq_status_sewa.Active := b;
+  zq_role.Active := b;
+  zq_login.Active := b;
+  zq_tarif.Active := b;
+end;
 
 end.
