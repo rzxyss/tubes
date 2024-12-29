@@ -15,8 +15,10 @@ type
     btnLogin: TButton;
     Label1: TLabel;
     zconn: TZConnection;
+    lblRegis: TLabel;
     procedure btnLoginClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure lblRegisClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -27,7 +29,7 @@ var
   fLogin: TfLogin;
 
 implementation
-uses admin, user, DataModul, GlobalUnit;
+uses admin, user, DataModul, GlobalUnit, registrasi;
 {$R *.dfm}
 
 procedure TfLogin.btnLoginClick(Sender: TObject);
@@ -77,6 +79,12 @@ end;
 procedure TfLogin.FormShow(Sender: TObject);
 begin
   dm.TabelAktif(True);
+end;
+
+procedure TfLogin.lblRegisClick(Sender: TObject);
+begin
+  Self.Hide;
+  fRegis.Show;
 end;
 
 end.

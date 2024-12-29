@@ -60,6 +60,21 @@ object fLogin: TfLogin
     ParentFont = False
     Transparent = True
   end
+  object lblRegis: TLabel
+    Left = 508
+    Top = 408
+    Width = 272
+    Height = 28
+    Cursor = crHandPoint
+    Caption = 'Tidak Mempunyai Akun? Klik Disini'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clBlack
+    Font.Height = -16
+    Font.Name = 'Poppins'
+    Font.Style = [fsItalic]
+    ParentFont = False
+    OnClick = lblRegisClick
+  end
   object edUname: TEdit
     Left = 557
     Top = 269
