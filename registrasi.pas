@@ -48,37 +48,46 @@ end;
 
 procedure TfRegis.btnSubmitClick(Sender: TObject);
 begin
+  // Pastikan koneksi ke database
   if not fLogin.zconn.Connected then
     fLogin.zconn.Connected := True;
 
+  // Siapkan query SQL
+  dm.zq_akun.SQL.Clear;
+  dm.zq_akun.SQL.Add(
+    'INSERT INTO akun (id_akun, nama, email, no_telp, username, password) ' +
+    'VALUES (:nik, :nama, :email, :telp, :username, :password)'
+  );
+
+  // Bind parameter dengan nilai dari form
+  dm.zq_akun.Params.ParamByName('nik').AsString := edNik.Text;
+  dm.zq_akun.Params.ParamByName('nama').AsString := edName.Text;
+  dm.zq_akun.Params.ParamByName('email').AsString := edEmail.Text;
+  dm.zq_akun.Params.ParamByName('telp').AsString := edTelp.Text;
+  dm.zq_akun.Params.ParamByName('username').AsString := edUname.Text;
+  dm.zq_akun.Params.ParamByName('password').AsString := edPass.Text;
+
+  try
+    // Eksekusi query
+    dm.zq_akun.ExecSQL;
+    ShowMessage('Akun berhasil dibuat, silahkan login!');
     dm.zq_akun.SQL.Clear;
-    dm.zq_akun.SQL.Add(
-      'INSERT INTO akun (id_akun, nama, email, no_telp, username, password) ' +
-      'VALUES (:nik, :nama, :email, :telp, :username, :password)'
-    );
-    dm.zq_akun.Params.ParamByName('nik').AsString := edNik.Text;
-    dm.zq_akun.Params.ParamByName('nama').AsString := edName.Text;
-    dm.zq_akun.Params.ParamByName('email').AsString := edEmail.Text;
-    dm.zq_akun.Params.ParamByName('telp').AsString := edTelp.Text;
-    dm.zq_akun.Params.ParamByName('username').AsString := edUname.Text;
-    dm.zq_akun.Params.ParamByName('password').AsString := edPass.Text;
 
-    try
-      dm.zq_akun.ExecSQL;
-      ShowMessage('Akun dibuat!');
-      Self.Hide;
-      fLogin.Show;
-    except
-      on E: Exception do
-        ShowMessage('Error: ' + E.Message);
-    end;
-
+    // Bersihkan form input
     edNik.Clear;
     edName.Clear;
     edEmail.Clear;
     edTelp.Clear;
     edUname.Clear;
     edPass.Clear;
+  except
+    on E: Exception do
+    begin
+      // Tampilkan pesan error jika terjadi
+      ShowMessage('Error: ' + E.Message);
+    end;
+  end;
 end;
+
 
 end.
