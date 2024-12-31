@@ -99,6 +99,9 @@ object dm: Tdm
       KeyFields = 'id_status'
       Lookup = True
     end
+    object zq_kendaraanblob: TBlobField
+      FieldName = 'blob'
+    end
   end
   object zq_sewa: TZQuery
     Connection = fLogin.zconn

@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, Grids, DBGrids, SMDBGrid, StdCtrls, Buttons, ExtCtrls, SMDBCtrl,
-  DBCtrls, ComCtrls, DateUtils;
+  DBCtrls, ComCtrls, DateUtils, EDBImage;
 
 type
   TfUser = class(TForm)
@@ -27,6 +27,7 @@ type
     tgl_selesai: TDateTimePicker;
     lblRiwayat: TLabel;
     nav_riwayat: TSMDBNavigator;
+    EDBImage1: TEDBImage;
     procedure FormShow(Sender: TObject);
     procedure btnTambahAkunClick(Sender: TObject);
     procedure btnRiwayatClick(Sender: TObject);

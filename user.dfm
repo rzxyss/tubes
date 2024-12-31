@@ -152,7 +152,6 @@ object fUser: TfUser
           Title.Font.Height = -11
           Title.Font.Name = 'Poppins'
           Title.Font.Style = []
-          Width = 64
           Visible = True
         end
         item
@@ -170,7 +169,6 @@ object fUser: TfUser
           Title.Font.Height = -11
           Title.Font.Name = 'Poppins'
           Title.Font.Style = []
-          Width = 64
           Visible = True
         end
         item
@@ -183,7 +181,6 @@ object fUser: TfUser
           Font.Style = []
           Title.Alignment = taCenter
           Title.Caption = 'Modal Kendaraan'
-          Width = 64
           Visible = True
         end
         item
@@ -237,7 +234,6 @@ object fUser: TfUser
           Title.Font.Height = -11
           Title.Font.Name = 'Poppins'
           Title.Font.Style = []
-          Width = 64
           Visible = True
         end>
     end
@@ -262,7 +258,7 @@ object fUser: TfUser
     BevelOuter = bvNone
     TabOrder = 3
     object AkunTambah: TGroupBox
-      Left = 536
+      Left = 290
       Top = 32
       Width = 217
       Height = 289
@@ -345,7 +341,7 @@ object fUser: TfUser
       end
     end
     object tgl_sewa: TDateTimePicker
-      Left = 552
+      Left = 305
       Top = 152
       Width = 186
       Height = 33
@@ -354,13 +350,24 @@ object fUser: TfUser
       TabOrder = 1
     end
     object tgl_selesai: TDateTimePicker
-      Left = 552
+      Left = 305
       Top = 216
       Width = 186
       Height = 33
       Date = 45645.490043576390000000
       Time = 45645.490043576390000000
       TabOrder = 2
+    end
+    object EDBImage1: TEDBImage
+      Left = 606
+      Top = 48
+      Width = 393
+      Height = 273
+      DataField = 'blob'
+      DataSource = dm.ds_kendaraan
+      ShrinkToFit = True
+      TabOrder = 3
+      ZoomToFit = False
     end
   end
 end

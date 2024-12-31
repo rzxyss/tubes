@@ -66,6 +66,7 @@ type
     zq_riwayatrl_merk_kendaraan: TStringField;
     zq_riwayatrl_model_kendaraan: TStringField;
     zq_riwayatrl_status_sewa: TStringField;
+    zq_kendaraanblob: TBlobField;
   private
     { Private declarations }
   public

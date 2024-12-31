@@ -518,6 +518,23 @@ object fAdmin: TfAdmin
         ParentFont = False
         TabOrder = 5
       end
+      object dbeRoleAkun: TDBEdit
+        Left = 264
+        Top = 183
+        Width = 185
+        Height = 34
+        DataField = 'rl_role'
+        DataSource = dm.ds_akun
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Height = -15
+        Font.Name = 'Poppins'
+        Font.Style = []
+        ParentFont = False
+        PopupMenu = PopupRole
+        ReadOnly = True
+        TabOrder = 6
+      end
     end
     object grid_akun: TSMDBGrid
       Left = 64
@@ -548,7 +565,7 @@ object fAdmin: TfAdmin
       RegistryKey = 'Software\Scalabium'
       RegistrySection = 'SMDBGrid'
       WidthOfIndicator = 11
-      DefaultRowHeight = 24
+      DefaultRowHeight = 17
       ScrollBars = ssHorizontal
       Columns = <
         item
@@ -1049,6 +1066,23 @@ object fAdmin: TfAdmin
         ParentFont = False
         TabOrder = 4
       end
+      object dbeStatusKendaraan: TDBEdit
+        Left = 264
+        Top = 119
+        Width = 185
+        Height = 34
+        DataField = 'rl_skendaraan'
+        DataSource = dm.ds_kendaraan
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Height = -15
+        Font.Name = 'Poppins'
+        Font.Style = []
+        ParentFont = False
+        PopupMenu = PopupStatusKendaraan
+        ReadOnly = True
+        TabOrder = 5
+      end
     end
     object grid_kendaraan: TSMDBGrid
       Left = 64
@@ -1168,6 +1202,7 @@ object fAdmin: TfAdmin
           Title.Font.Height = -11
           Title.Font.Name = 'Poppins'
           Title.Font.Style = []
+          Width = 64
           Visible = True
         end
         item
@@ -1199,6 +1234,18 @@ object fAdmin: TfAdmin
       ShowCaption = False
       ShowGlyph = True
       TabOrder = 3
+    end
+    object blob: TEDBImage
+      Left = 568
+      Top = 32
+      Width = 105
+      Height = 105
+      DataField = 'blob'
+      DataSource = dm.ds_kendaraan
+      PopupMenu = PopupMenu1
+      ShrinkToFit = True
+      TabOrder = 4
+      ZoomToFit = False
     end
   end
   object pnlSewa: TPanel
@@ -1371,6 +1418,7 @@ object fAdmin: TfAdmin
           Title.Font.Height = -11
           Title.Font.Name = 'Poppins'
           Title.Font.Style = []
+          Width = 64
           Visible = True
         end>
     end
@@ -1384,6 +1432,75 @@ object fAdmin: TfAdmin
       ShowCaption = False
       ShowGlyph = True
       TabOrder = 1
+    end
+    object dbeStatusSewa: TDBEdit
+      Left = 64
+      Top = 327
+      Width = 185
+      Height = 34
+      DataField = 'rl_status'
+      DataSource = dm.ds_sewa
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clBlack
+      Font.Height = -15
+      Font.Name = 'Poppins'
+      Font.Style = []
+      ParentFont = False
+      PopupMenu = PopupStatusSewa
+      ReadOnly = True
+      TabOrder = 2
+    end
+  end
+  object PopupMenu1: TPopupMenu
+    Left = 568
+    Top = 232
+    object Load1: TMenuItem
+      Caption = 'Load'
+      OnClick = Load1Click
+    end
+    object Hapus1: TMenuItem
+      Caption = 'Hapus'
+      OnClick = Hapus1Click
+    end
+  end
+  object PopupRole: TPopupMenu
+    Left = 576
+    Top = 280
+    object Admin1: TMenuItem
+      Caption = 'Admin'
+      OnClick = Admin1Click
+    end
+    object Pelanggan1: TMenuItem
+      Caption = 'Pelanggan'
+      OnClick = Pelanggan1Click
+    end
+  end
+  object PopupStatusSewa: TPopupMenu
+    Left = 608
+    Top = 352
+    object SedangDiproses1: TMenuItem
+      Caption = 'Sedang Diproses'
+      OnClick = SedangDiproses1Click
+    end
+    object Selesai1: TMenuItem
+      Caption = 'Selesai'
+      OnClick = Selesai1Click
+    end
+    object Dibatalkan1: TMenuItem
+      Caption = 'Dibatalkan'
+      OnClick = Dibatalkan1Click
+    end
+  end
+  object PopupStatusKendaraan: TPopupMenu
+    Left = 648
+    Top = 312
+    object ersedia1: TMenuItem
+      Caption = 'Tersedia'
+      OnClick = ersedia1Click
+    end
+    object idakTersedia1: TMenuItem
+      Caption = 'Tidak Tersedia'
+      OnClick = idakTersedia1Click
     end
   end
 end
