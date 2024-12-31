@@ -100,6 +100,7 @@ type
     PopupStatusKendaraan: TPopupMenu;
     ersedia1: TMenuItem;
     idakTersedia1: TMenuItem;
+    btnLogout: TBitBtn;
     procedure btnAkunClick(Sender: TObject);
     procedure btnKendaraanClick(Sender: TObject);
     procedure btnSewaClick(Sender: TObject);
@@ -115,6 +116,7 @@ type
     procedure Dibatalkan1Click(Sender: TObject);
     procedure ersedia1Click(Sender: TObject);
     procedure idakTersedia1Click(Sender: TObject);
+    procedure btnLogoutClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -125,7 +127,7 @@ var
   fAdmin: TfAdmin;
 
 implementation
-uses DataModul, login, myLib_Blob;
+uses DataModul, login, myLib_Blob, GlobalUnit;
 {$R *.dfm}
 
 procedure TfAdmin.btnAkunClick(Sender: TObject);
@@ -367,6 +369,15 @@ begin
   if not (dm.zq_kendaraan.State in [dsEdit, dsInsert]) then
     dm.zq_kendaraan.Edit;
   dm.zq_kendaraan.FieldByName('id_status').AsInteger := 2;
+end;
+
+procedure TfAdmin.btnLogoutClick(Sender: TObject);
+begin
+  userId := '';
+  roleId := 0;
+  username := '';
+  fLogin.Show;
+  Self.Hide;
 end;
 
 end.

@@ -28,10 +28,12 @@ type
     lblRiwayat: TLabel;
     nav_riwayat: TSMDBNavigator;
     EDBImage1: TEDBImage;
+    btnLogout: TBitBtn;
     procedure FormShow(Sender: TObject);
     procedure btnTambahAkunClick(Sender: TObject);
     procedure btnRiwayatClick(Sender: TObject);
     procedure btnSewaClick(Sender: TObject);
+    procedure btnLogoutClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -160,6 +162,15 @@ begin
   pnlSewa.Visible := True;
   lblRiwayat.Visible := False;
   lblSewa.Visible := True;
+end;
+
+procedure TfUser.btnLogoutClick(Sender: TObject);
+begin
+  userId := '';
+  roleId := 0;
+  username := '';
+  fLogin.Show;
+  Self.Hide;
 end;
 
 end.

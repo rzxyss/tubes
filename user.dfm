@@ -64,7 +64,7 @@ object fUser: TfUser
     ParentFont = False
   end
   object btnRiwayat: TBitBtn
-    Left = 992
+    Left = 848
     Top = 8
     Width = 145
     Height = 65
@@ -73,7 +73,7 @@ object fUser: TfUser
     OnClick = btnRiwayatClick
   end
   object btnSewa: TBitBtn
-    Left = 1136
+    Left = 992
     Top = 8
     Width = 145
     Height = 65
@@ -369,5 +369,14 @@ object fUser: TfUser
       TabOrder = 3
       ZoomToFit = False
     end
+  end
+  object btnLogout: TBitBtn
+    Left = 1136
+    Top = 8
+    Width = 145
+    Height = 65
+    Caption = 'Logout'
+    TabOrder = 4
+    OnClick = btnLogoutClick
   end
 end

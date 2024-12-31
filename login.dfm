@@ -62,7 +62,7 @@ object fLogin: TfLogin
   end
   object lblRegis: TLabel
     Left = 508
-    Top = 408
+    Top = 416
     Width = 272
     Height = 28
     Cursor = crHandPoint

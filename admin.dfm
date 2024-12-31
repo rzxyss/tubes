@@ -77,7 +77,7 @@ object fAdmin: TfAdmin
     ParentFont = False
   end
   object btnAkun: TBitBtn
-    Left = 848
+    Left = 704
     Top = 8
     Width = 145
     Height = 65
@@ -86,7 +86,7 @@ object fAdmin: TfAdmin
     OnClick = btnAkunClick
   end
   object btnKendaraan: TBitBtn
-    Left = 992
+    Left = 848
     Top = 8
     Width = 145
     Height = 65
@@ -95,7 +95,7 @@ object fAdmin: TfAdmin
     OnClick = btnKendaraanClick
   end
   object btnSewa: TBitBtn
-    Left = 1136
+    Left = 992
     Top = 8
     Width = 145
     Height = 65
@@ -1450,6 +1450,15 @@ object fAdmin: TfAdmin
       ReadOnly = True
       TabOrder = 2
     end
+  end
+  object btnLogout: TBitBtn
+    Left = 1136
+    Top = 8
+    Width = 145
+    Height = 65
+    Caption = 'Logout'
+    TabOrder = 6
+    OnClick = btnLogoutClick
   end
   object PopupMenu1: TPopupMenu
     Left = 568
