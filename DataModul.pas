@@ -4,7 +4,7 @@ interface
 
 uses
   SysUtils, Classes, DB, ZAbstractRODataset, ZAbstractDataset, ZDataset,
-  SMDBFind, SMDBFltr;
+  SMDBFind, SMDBFltr, frxClass, frxDBSet;
 
 type
   Tdm = class(TDataModule)
@@ -67,6 +67,14 @@ type
     zq_riwayatrl_model_kendaraan: TStringField;
     zq_riwayatrl_status_sewa: TStringField;
     zq_kendaraanblob: TBlobField;
+    rpt_akun: TfrxReport;
+    db_rptakun: TfrxDBDataset;
+    db_rptkendaraan: TfrxDBDataset;
+    rpt_kendaraan: TfrxReport;
+    db_rptsewa: TfrxDBDataset;
+    rpt_sewa: TfrxReport;
+    db_rptriwayat: TfrxDBDataset;
+    rpt_riwayat: TfrxReport;
   private
     { Private declarations }
   public
