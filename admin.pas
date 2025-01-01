@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, ExtCtrls, StdCtrls, Grids, DBGrids, SMDBGrid, ComCtrls, XPMan,
-  Buttons, Mask, DBCtrls, SMDBCtrl, Menus, EDBImage, DB;
+  Buttons, Mask, DBCtrls, SMDBCtrl, Menus, EDBImage, DB, mxExport;
 
 type
   TfAdmin = class(TForm)
@@ -101,6 +101,9 @@ type
     ersedia1: TMenuItem;
     idakTersedia1: TMenuItem;
     btnLogout: TBitBtn;
+    export_sewa: TmxDBGridExport;
+    export_kendaraan: TmxDBGridExport;
+    export_akun: TmxDBGridExport;
     procedure btnAkunClick(Sender: TObject);
     procedure btnKendaraanClick(Sender: TObject);
     procedure btnSewaClick(Sender: TObject);
@@ -117,6 +120,9 @@ type
     procedure ersedia1Click(Sender: TObject);
     procedure idakTersedia1Click(Sender: TObject);
     procedure btnLogoutClick(Sender: TObject);
+    procedure nav_sewaClick(Sender: TObject; Button: TSMNavigateBtn);
+    procedure nav_kendaraanClick(Sender: TObject; Button: TSMNavigateBtn);
+    procedure nav_akunClick(Sender: TObject; Button: TSMNavigateBtn);
   private
     { Private declarations }
   public
@@ -378,6 +384,37 @@ begin
   username := '';
   fLogin.Show;
   Self.Hide;
+end;
+
+procedure TfAdmin.nav_sewaClick(Sender: TObject; Button: TSMNavigateBtn);
+begin
+  case Button of
+    sbFind: dm.find_sewa.Execute;
+    sbFilter: dm.filter_sewa.Execute;
+    sbExport: export_sewa.Select;
+    sbPrint: dm.rpt_sewa.ShowReport;
+  end;
+end;
+
+procedure TfAdmin.nav_kendaraanClick(Sender: TObject;
+  Button: TSMNavigateBtn);
+begin
+  case Button of
+    sbFind: dm.find_kendaraan.Execute;
+    sbFilter: dm.filter_kendaraan.Execute;
+    sbExport: export_kendaraan.Select;
+    sbPrint: dm.rpt_kendaraan.ShowReport;
+  end;
+end;
+
+procedure TfAdmin.nav_akunClick(Sender: TObject; Button: TSMNavigateBtn);
+begin
+  case Button of
+    sbFind: dm.find_akun.Execute;
+    sbFilter: dm.filter_akun.Execute;
+    sbExport: export_akun.Select;
+    sbPrint: dm.rpt_akun.ShowReport;
+  end;
 end;
 
 end.

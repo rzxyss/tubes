@@ -75,6 +75,8 @@ type
     rpt_sewa: TfrxReport;
     db_rptriwayat: TfrxDBDataset;
     rpt_riwayat: TfrxReport;
+    find_riwayat: TSMDBFindDialog;
+    filter_riwayat: TSMDBFilterDialog;
   private
     { Private declarations }
   public

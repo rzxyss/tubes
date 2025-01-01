@@ -6,7 +6,6 @@ object dm: Tdm
   Width = 720
   object zq_akun: TZQuery
     Connection = fLogin.zconn
-    Active = True
     SQL.Strings = (
       'SELECT * FROM akun ORDER BY id_akun')
     Params = <>
@@ -58,7 +57,6 @@ object dm: Tdm
   end
   object zq_kendaraan: TZQuery
     Connection = fLogin.zconn
-    Active = True
     SQL.Strings = (
       'SELECT * FROM kendaraan ORDER BY id_kendaraan')
     Params = <>
@@ -106,7 +104,6 @@ object dm: Tdm
   end
   object zq_sewa: TZQuery
     Connection = fLogin.zconn
-    Active = True
     SQL.Strings = (
       'SELECT * FROM sewa ORDER BY id_sewa')
     Params = <>
@@ -253,7 +250,6 @@ object dm: Tdm
   end
   object zq_role: TZQuery
     Connection = fLogin.zconn
-    Active = True
     SQL.Strings = (
       'SELECT * FROM role')
     Params = <>
@@ -262,7 +258,6 @@ object dm: Tdm
   end
   object zq_status_kendaraan: TZQuery
     Connection = fLogin.zconn
-    Active = True
     SQL.Strings = (
       'SELECT * FROM status_kendaraan')
     Params = <>
@@ -271,7 +266,6 @@ object dm: Tdm
   end
   object zq_status_sewa: TZQuery
     Connection = fLogin.zconn
-    Active = True
     SQL.Strings = (
       'SELECT * FROM status_sewa')
     Params = <>
@@ -280,7 +274,6 @@ object dm: Tdm
   end
   object zq_login: TZQuery
     Connection = fLogin.zconn
-    Active = True
     SQL.Strings = (
       'SELECT * FROM akun')
     Params = <>
@@ -300,7 +293,6 @@ object dm: Tdm
   end
   object zq_tarif: TZQuery
     Connection = fLogin.zconn
-    Active = True
     SQL.Strings = (
       'SELECT * FROM role')
     Params = <>
@@ -309,7 +301,6 @@ object dm: Tdm
   end
   object zq_riwayat: TZQuery
     Connection = fLogin.zconn
-    Active = True
     SQL.Strings = (
       'SELECT * FROM sewa')
     Params = <>
@@ -378,7 +369,7 @@ object dm: Tdm
       LookupDataSet = zq_status_sewa
       LookupKeyFields = 'id_status'
       LookupResultField = 'status'
-      KeyFields = 'id_sewa'
+      KeyFields = 'id_status'
       Lookup = True
     end
   end
@@ -1265,7 +1256,7 @@ object dm: Tdm
     CloseDataSource = False
     DataSet = zq_riwayat
     Left = 304
-    Top = 176
+    Top = 288
   end
   object rpt_riwayat: TfrxReport
     Version = '4.6.8'
@@ -1283,7 +1274,7 @@ object dm: Tdm
       ''
       'end.')
     Left = 304
-    Top = 120
+    Top = 232
     Datasets = <
       item
         DataSet = db_rptriwayat
@@ -1613,5 +1604,24 @@ object dm: Tdm
         end
       end
     end
+  end
+  object find_riwayat: TSMDBFindDialog
+    Caption = 'Record search'
+    ShowDialog = True
+    DataSource = ds_riwayat
+    FindOption = []
+    FindMode = fmBeginPart
+    FindScore = fsFromFirst
+    SayResult = False
+    Left = 304
+    Top = 120
+  end
+  object filter_riwayat: TSMDBFilterDialog
+    Caption = 'Filter setup dialog'
+    Dataset = zq_riwayat
+    FilterMode = fmFilterDataset
+    WildCard = '%'
+    Left = 304
+    Top = 176
   end
 end

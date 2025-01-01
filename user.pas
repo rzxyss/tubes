@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, Grids, DBGrids, SMDBGrid, StdCtrls, Buttons, ExtCtrls, SMDBCtrl,
-  DBCtrls, ComCtrls, DateUtils, EDBImage;
+  DBCtrls, ComCtrls, DateUtils, EDBImage, mxExport;
 
 type
   TfUser = class(TForm)
@@ -29,11 +29,13 @@ type
     nav_riwayat: TSMDBNavigator;
     EDBImage1: TEDBImage;
     btnLogout: TBitBtn;
+    export_riwayat: TmxDBGridExport;
     procedure FormShow(Sender: TObject);
     procedure btnTambahAkunClick(Sender: TObject);
     procedure btnRiwayatClick(Sender: TObject);
     procedure btnSewaClick(Sender: TObject);
     procedure btnLogoutClick(Sender: TObject);
+    procedure nav_riwayatClick(Sender: TObject; Button: TSMNavigateBtn);
   private
     { Private declarations }
   public
@@ -171,6 +173,16 @@ begin
   username := '';
   fLogin.Show;
   Self.Hide;
+end;
+
+procedure TfUser.nav_riwayatClick(Sender: TObject; Button: TSMNavigateBtn);
+begin
+  case Button of
+    sbPrint: dm.rpt_riwayat.ShowReport;
+    sbFind: dm.find_riwayat.Execute;
+    sbFilter: dm.filter_riwayat.Execute;
+    sbExport: export_riwayat.Select;
+  end;
 end;
 
 end.
