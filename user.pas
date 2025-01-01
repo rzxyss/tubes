@@ -148,6 +148,8 @@ begin
 
   dm.zq_sewa.Close;
   dm.zq_sewa.SQL.Clear;
+  dm.zq_sewa.SQL.Add('SELECT * FROM sewa');
+  dm.zq_sewa.Open;
 end;
 
 procedure TfUser.btnRiwayatClick(Sender: TObject);
@@ -168,9 +170,6 @@ end;
 
 procedure TfUser.btnLogoutClick(Sender: TObject);
 begin
-  userId := '';
-  roleId := 0;
-  username := '';
   fLogin.Show;
   Self.Hide;
 end;
