@@ -61,12 +61,12 @@ object fLogin: TfLogin
     Transparent = True
   end
   object lblRegis: TLabel
-    Left = 508
+    Left = 708
     Top = 416
-    Width = 272
+    Width = 72
     Height = 28
     Cursor = crHandPoint
-    Caption = 'Tidak Mempunyai Akun? Klik Disini'
+    Caption = 'Klik Disini'
     Font.Charset = ANSI_CHARSET
     Font.Color = clBlack
     Font.Height = -16
@@ -74,6 +74,19 @@ object fLogin: TfLogin
     Font.Style = [fsItalic]
     ParentFont = False
     OnClick = lblRegisClick
+  end
+  object Label2: TLabel
+    Left = 508
+    Top = 416
+    Width = 193
+    Height = 28
+    Caption = 'Tidak Mempunyai Akun?'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clBlack
+    Font.Height = -16
+    Font.Name = 'Poppins'
+    Font.Style = []
+    ParentFont = False
   end
   object edUname: TEdit
     Left = 557
@@ -87,6 +100,7 @@ object fLogin: TfLogin
     Top = 341
     Width = 169
     Height = 21
+    PasswordChar = '*'
     TabOrder = 1
   end
   object btnLogin: TButton

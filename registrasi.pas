@@ -25,6 +25,7 @@ type
     btnSubmit: TButton;
     btnReset: TButton;
     lblLogin: TLabel;
+    Label8: TLabel;
     procedure lblLoginClick(Sender: TObject);
     procedure btnSubmitClick(Sender: TObject);
   private

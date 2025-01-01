@@ -32,12 +32,12 @@ object fRegis: TfRegis
     Transparent = True
   end
   object lblLogin: TLabel
-    Left = 508
+    Left = 696
     Top = 501
-    Width = 280
+    Width = 72
     Height = 28
     Cursor = crHandPoint
-    Caption = 'Sudah Mempunyai Akun? Klik Disini'
+    Caption = 'Klik Disini'
     Font.Charset = ANSI_CHARSET
     Font.Color = clBlack
     Font.Height = -16
@@ -46,9 +46,22 @@ object fRegis: TfRegis
     ParentFont = False
     OnClick = lblLoginClick
   end
+  object Label8: TLabel
+    Left = 520
+    Top = 501
+    Width = 170
+    Height = 28
+    Caption = 'Sudah Memiliki Akun?'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clBlack
+    Font.Height = -16
+    Font.Name = 'Poppins'
+    Font.Style = []
+    ParentFont = False
+  end
   object GroupBox1: TGroupBox
     Left = 364
-    Top = 205
+    Top = 197
     Width = 561
     Height = 289
     Caption = 'Silahkan Isi Form Dibawah'

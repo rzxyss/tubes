@@ -77,6 +77,15 @@ type
     rpt_riwayat: TfrxReport;
     find_riwayat: TSMDBFindDialog;
     filter_riwayat: TSMDBFilterDialog;
+    zq_penyewaan: TZQuery;
+    ds_penyewaan: TDataSource;
+    zq_penyewaanid_kendaraan: TStringField;
+    zq_penyewaanjenis_kendaraan: TStringField;
+    zq_penyewaanmerk_kendaraan: TStringField;
+    zq_penyewaanmodel_kendaraan: TStringField;
+    zq_penyewaantarif: TFloatField;
+    zq_penyewaanid_status: TIntegerField;
+    zq_penyewaanblob: TBlobField;
   private
     { Private declarations }
   public
@@ -102,6 +111,7 @@ begin
   zq_role.Active := b;
   zq_login.Active := b;
   zq_tarif.Active := b;
+  zq_penyewaan.Active := b;
 end;
 
 end.

@@ -104,6 +104,8 @@ type
     export_sewa: TmxDBGridExport;
     export_kendaraan: TmxDBGridExport;
     export_akun: TmxDBGridExport;
+    btnHapusKendaraan: TButton;
+    btnHapusAkun: TButton;
     procedure btnAkunClick(Sender: TObject);
     procedure btnKendaraanClick(Sender: TObject);
     procedure btnSewaClick(Sender: TObject);
@@ -123,6 +125,8 @@ type
     procedure nav_sewaClick(Sender: TObject; Button: TSMNavigateBtn);
     procedure nav_kendaraanClick(Sender: TObject; Button: TSMNavigateBtn);
     procedure nav_akunClick(Sender: TObject; Button: TSMNavigateBtn);
+    procedure btnHapusKendaraanClick(Sender: TObject);
+    procedure btnHapusAkunClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -415,6 +419,76 @@ begin
     sbExport: export_akun.Select;
     sbPrint: dm.rpt_akun.ShowReport;
   end;
+end;
+
+procedure TfAdmin.btnHapusKendaraanClick(Sender: TObject);
+var
+  idKendaraan: string;
+begin
+  if not fLogin.zconn.Connected then
+    fLogin.zconn.Connected:= True;
+
+    idKendaraan := dm.zq_kendaraan.FieldByName('id_kendaraan').AsString;
+
+    if idKendaraan = '' then
+    begin
+      ShowMessage('Silahkan pilih kendaraan yang akan di hapus!');
+      Exit;
+    end;
+
+    try
+      with dm.zq_kendaraan do
+      begin
+        SQL.Clear;
+        SQL.Add('DELETE FROM kendaraan WHERE id_kendaraan = :id');
+        Params.ParamByName('id').AsString := idKendaraan;
+        ExecSQL;
+        Close;
+        SQL.Clear;
+        SQL.Add('SELECT * FROM kendaraan');
+        Open;
+      end;
+
+      ShowMessage('Berhasil dihapus!');
+    except
+      on E: Exception do
+        ShowMessage('Error: ' + E.Message);
+    end;
+end;
+
+procedure TfAdmin.btnHapusAkunClick(Sender: TObject);
+var
+  idAkun: string;
+begin
+  if not fLogin.zconn.Connected then
+    fLogin.zconn.Connected:= True;
+
+    idAkun := dm.zq_akun.FieldByName('id_akun').AsString;
+
+    if idAkun = '' then
+    begin
+      ShowMessage('Silahkan pilih akun yang akan di hapus!');
+      Exit;
+    end;
+
+    try
+      with dm.zq_akun do
+      begin
+        SQL.Clear;
+        SQL.Add('DELETE FROM akun WHERE id_akun = :id');
+        Params.ParamByName('id').AsString := idAkun;
+        ExecSQL;
+        Close;
+        SQL.Clear;
+        SQL.Add('SELECT * FROM akun');
+        Open;
+      end;
+
+      ShowMessage('Berhasil dihapus!');
+    except
+      on E: Exception do
+        ShowMessage('Error: ' + E.Message);
+    end;
 end;
 
 end.

@@ -707,6 +707,21 @@ object fAdmin: TfAdmin
       TabOrder = 3
       OnClick = nav_akunClick
     end
+    object btnHapusAkun: TButton
+      Left = 608
+      Top = 512
+      Width = 89
+      Height = 25
+      Caption = 'Hapus'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clBlack
+      Font.Height = -15
+      Font.Name = 'Poppins'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 4
+      OnClick = btnHapusAkunClick
+    end
   end
   object pnlKendaraan: TPanel
     Left = 0
@@ -1251,6 +1266,21 @@ object fAdmin: TfAdmin
       ShrinkToFit = True
       TabOrder = 4
       ZoomToFit = False
+    end
+    object btnHapusKendaraan: TButton
+      Left = 616
+      Top = 512
+      Width = 81
+      Height = 25
+      Caption = 'Hapus'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clBlack
+      Font.Height = -15
+      Font.Name = 'Poppins'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 5
+      OnClick = btnHapusKendaraanClick
     end
   end
   object pnlSewa: TPanel

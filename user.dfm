@@ -255,8 +255,8 @@ object fUser: TfUser
     Left = 0
     Top = 88
     Width = 1289
-    Height = 193
-    BevelOuter = bvLowered
+    Height = 545
+    BevelOuter = bvNone
     TabOrder = 3
     object AkunTambah: TGroupBox
       Left = 290

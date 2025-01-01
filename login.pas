@@ -16,6 +16,7 @@ type
     Label1: TLabel;
     zconn: TZConnection;
     lblRegis: TLabel;
+    Label2: TLabel;
     procedure btnLoginClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure lblRegisClick(Sender: TObject);
@@ -55,11 +56,15 @@ begin
         begin
           fAdmin.Show;
           Self.Hide;
+          edUname.Clear;
+          edPass.Clear;
         end
         else if roleId = 2 then
         begin
           fUser.Show;
           Self.Hide;
+          edUname.Clear;
+          edPass.Clear;
         end;
       end
       else

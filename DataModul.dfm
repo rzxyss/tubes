@@ -1624,4 +1624,47 @@ object dm: Tdm
     Left = 304
     Top = 176
   end
+  object zq_penyewaan: TZQuery
+    Connection = fLogin.zconn
+    SQL.Strings = (
+      'SELECT * FROM kendaraan')
+    Params = <>
+    Left = 368
+    Top = 8
+    object zq_penyewaanid_kendaraan: TStringField
+      FieldName = 'id_kendaraan'
+      Required = True
+      Size = 12
+    end
+    object zq_penyewaanjenis_kendaraan: TStringField
+      FieldName = 'jenis_kendaraan'
+      Required = True
+      Size = 50
+    end
+    object zq_penyewaanmerk_kendaraan: TStringField
+      FieldName = 'merk_kendaraan'
+      Required = True
+      Size = 50
+    end
+    object zq_penyewaanmodel_kendaraan: TStringField
+      FieldName = 'model_kendaraan'
+      Required = True
+      Size = 50
+    end
+    object zq_penyewaantarif: TFloatField
+      FieldName = 'tarif'
+      Required = True
+    end
+    object zq_penyewaanid_status: TIntegerField
+      FieldName = 'id_status'
+    end
+    object zq_penyewaanblob: TBlobField
+      FieldName = 'blob'
+    end
+  end
+  object ds_penyewaan: TDataSource
+    DataSet = zq_penyewaan
+    Left = 368
+    Top = 64
+  end
 end
