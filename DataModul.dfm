@@ -6,6 +6,7 @@ object dm: Tdm
   Width = 720
   object zq_akun: TZQuery
     Connection = fLogin.zconn
+    OnCalcFields = zq_akunCalcFields
     OnDeleteError = zq_akunDeleteError
     SQL.Strings = (
       'SELECT * FROM akun ORDER BY id_akun')
@@ -54,6 +55,11 @@ object dm: Tdm
       LookupResultField = 'role'
       KeyFields = 'id_role'
       Lookup = True
+    end
+    object zq_akuncalc_role: TStringField
+      FieldKind = fkCalculated
+      FieldName = 'calc_role'
+      Calculated = True
     end
   end
   object zq_kendaraan: TZQuery
@@ -109,6 +115,8 @@ object dm: Tdm
     SQL.Strings = (
       'SELECT * FROM sewa ORDER BY id_sewa')
     Params = <>
+    MasterFields = 'id_kendaraan'
+    MasterSource = ds_kendaraan2
     Left = 144
     Top = 8
     object zq_sewaid_sewa: TStringField
@@ -1668,5 +1676,58 @@ object dm: Tdm
     DataSet = zq_penyewaan
     Left = 368
     Top = 64
+  end
+  object zq_kendaraan2: TZQuery
+    Connection = fLogin.zconn
+    OnDeleteError = zq_kendaraanDeleteError
+    SQL.Strings = (
+      'SELECT * FROM kendaraan ORDER BY id_kendaraan')
+    Params = <>
+    Left = 224
+    Top = 120
+    object StringField1: TStringField
+      FieldName = 'id_kendaraan'
+      Required = True
+      Size = 12
+    end
+    object StringField2: TStringField
+      FieldName = 'jenis_kendaraan'
+      Required = True
+      Size = 50
+    end
+    object StringField3: TStringField
+      FieldName = 'merk_kendaraan'
+      Required = True
+      Size = 50
+    end
+    object StringField4: TStringField
+      FieldName = 'model_kendaraan'
+      Required = True
+      Size = 50
+    end
+    object FloatField1: TFloatField
+      FieldName = 'tarif'
+      Required = True
+    end
+    object IntegerField1: TIntegerField
+      FieldName = 'id_status'
+    end
+    object StringField5: TStringField
+      FieldKind = fkLookup
+      FieldName = 'rl_skendaraan'
+      LookupDataSet = zq_status_kendaraan
+      LookupKeyFields = 'id_status'
+      LookupResultField = 'status'
+      KeyFields = 'id_status'
+      Lookup = True
+    end
+    object BlobField1: TBlobField
+      FieldName = 'blob'
+    end
+  end
+  object ds_kendaraan2: TDataSource
+    DataSet = zq_kendaraan2
+    Left = 224
+    Top = 176
   end
 end

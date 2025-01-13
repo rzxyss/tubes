@@ -86,10 +86,22 @@ type
     zq_penyewaantarif: TFloatField;
     zq_penyewaanid_status: TIntegerField;
     zq_penyewaanblob: TBlobField;
+    zq_akuncalc_role: TStringField;
+    zq_kendaraan2: TZQuery;
+    StringField1: TStringField;
+    StringField2: TStringField;
+    StringField3: TStringField;
+    StringField4: TStringField;
+    FloatField1: TFloatField;
+    IntegerField1: TIntegerField;
+    StringField5: TStringField;
+    BlobField1: TBlobField;
+    ds_kendaraan2: TDataSource;
     procedure zq_akunDeleteError(DataSet: TDataSet; E: EDatabaseError;
       var Action: TDataAction);
     procedure zq_kendaraanDeleteError(DataSet: TDataSet; E: EDatabaseError;
       var Action: TDataAction);
+    procedure zq_akunCalcFields(DataSet: TDataSet);
   private
     { Private declarations }
   public
@@ -116,6 +128,7 @@ begin
   zq_login.Active := b;
   zq_tarif.Active := b;
   zq_penyewaan.Active := b;
+  zq_kendaraan2.Active := b;
 end;
 
 procedure Tdm.zq_akunDeleteError(DataSet: TDataSet; E: EDatabaseError;
@@ -144,6 +157,17 @@ begin
              'masih mempunyai relasi dengan tabel Sewa';
   end;
   MessageBox(0, PChar(msg), 'Delete Error', MB_ICONERROR or MB_OK);
+end;
+
+procedure Tdm.zq_akunCalcFields(DataSet: TDataSet);
+begin
+  if zq_akunid_role.Value = 1 then
+    zq_akuncalc_role.Value := 'Admin'
+  else
+  if zq_akunid_role.Value = 2 then
+    zq_akuncalc_role.Value := 'Pelanggan'
+  else
+    zq_akuncalc_role.Value := 'Tidak Terdeteksi'
 end;
 
 end.

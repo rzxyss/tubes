@@ -106,6 +106,8 @@ type
     export_akun: TmxDBGridExport;
     btnHapusKendaraan: TButton;
     btnHapusAkun: TButton;
+    SMDBGrid1: TSMDBGrid;
+    EDBImage1: TEDBImage;
     procedure btnAkunClick(Sender: TObject);
     procedure btnKendaraanClick(Sender: TObject);
     procedure btnSewaClick(Sender: TObject);
@@ -436,24 +438,19 @@ begin
       Exit;
     end;
 
-    try
-      with dm.zq_kendaraan do
-      begin
-        SQL.Clear;
-        SQL.Add('DELETE FROM kendaraan WHERE id_kendaraan = :id');
-        Params.ParamByName('id').AsString := idKendaraan;
-        ExecSQL;
-        Close;
-        SQL.Clear;
-        SQL.Add('SELECT * FROM kendaraan');
-        Open;
-      end;
-
-      ShowMessage('Berhasil dihapus!');
-    except
-      on E: Exception do
-        ShowMessage('Error: ' + E.Message);
+    with dm.zq_kendaraan do
+    begin
+      SQL.Clear;
+      SQL.Add('DELETE FROM kendaraan WHERE id_kendaraan = :id');
+      Params.ParamByName('id').AsString := idKendaraan;
+      ExecSQL;
+      Close;
+      SQL.Clear;
+      SQL.Add('SELECT * FROM kendaraan');
+      Open;
     end;
+
+    ShowMessage('Berhasil dihapus!');
 end;
 
 procedure TfAdmin.btnHapusAkunClick(Sender: TObject);
@@ -471,24 +468,19 @@ begin
       Exit;
     end;
 
-    try
-      with dm.zq_akun do
-      begin
-        SQL.Clear;
-        SQL.Add('DELETE FROM akun WHERE id_akun = :id');
-        Params.ParamByName('id').AsString := idAkun;
-        ExecSQL;
-        Close;
-        SQL.Clear;
-        SQL.Add('SELECT * FROM akun');
-        Open;
-      end;
-
-      ShowMessage('Berhasil dihapus!');
-    except
-      on E: Exception do
-        ShowMessage('Error: ' + E.Message);
+    with dm.zq_akun do
+    begin
+      SQL.Clear;
+      SQL.Add('DELETE FROM akun WHERE id_akun = :id');
+      Params.ParamByName('id').AsString := idAkun;
+      ExecSQL;
+      Close;
+      SQL.Clear;
+      SQL.Add('SELECT * FROM akun');
+      Open;
     end;
+
+    ShowMessage('Berhasil dihapus!');
 end;
 
 end.

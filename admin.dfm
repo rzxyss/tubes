@@ -677,7 +677,7 @@ object fAdmin: TfAdmin
         end
         item
           Expanded = False
-          FieldName = 'rl_role'
+          FieldName = 'calc_role'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
@@ -1486,6 +1486,99 @@ object fAdmin: TfAdmin
       PopupMenu = PopupStatusSewa
       ReadOnly = True
       TabOrder = 2
+    end
+    object SMDBGrid1: TSMDBGrid
+      Left = 808
+      Top = 256
+      Width = 420
+      Height = 120
+      DataSource = dm.ds_kendaraan
+      Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit]
+      TabOrder = 3
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -11
+      TitleFont.Name = 'MS Sans Serif'
+      TitleFont.Style = []
+      Flat = False
+      BandsFont.Charset = DEFAULT_CHARSET
+      BandsFont.Color = clWindowText
+      BandsFont.Height = -11
+      BandsFont.Name = 'MS Sans Serif'
+      BandsFont.Style = []
+      Groupings = <>
+      GridStyle.Style = gsNormal
+      GridStyle.OddColor = clWindow
+      GridStyle.EvenColor = clWindow
+      TitleHeight.PixelCount = 24
+      FooterColor = clBtnFace
+      ExOptions = [eoENTERlikeTAB, eoKeepSelection, eoStandardPopup, eoBLOBEditor, eoTitleWordWrap, eoFilterAutoApply]
+      RegistryKey = 'Software\Scalabium'
+      RegistrySection = 'SMDBGrid'
+      WidthOfIndicator = 11
+      DefaultRowHeight = 17
+      ScrollBars = ssHorizontal
+      Columns = <
+        item
+          Expanded = False
+          FieldName = 'jenis_kendaraan'
+          Title.Alignment = taCenter
+          Title.Caption = 'Jenis Kendaraan'
+          Title.Font.Charset = ANSI_CHARSET
+          Title.Font.Color = clBlack
+          Title.Font.Height = -12
+          Title.Font.Name = 'Poppins'
+          Title.Font.Style = []
+          Width = 200
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'merk_kendaraan'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Poppins'
+          Font.Style = []
+          Title.Alignment = taCenter
+          Title.Caption = 'Merk'
+          Title.Font.Charset = ANSI_CHARSET
+          Title.Font.Color = clWindowText
+          Title.Font.Height = -12
+          Title.Font.Name = 'Poppins'
+          Title.Font.Style = []
+          Width = 100
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'model_kendaraan'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Poppins'
+          Font.Style = []
+          Title.Alignment = taCenter
+          Title.Caption = 'Model'
+          Title.Font.Charset = ANSI_CHARSET
+          Title.Font.Color = clWindowText
+          Title.Font.Height = -12
+          Title.Font.Name = 'Poppins'
+          Title.Font.Style = []
+          Width = 100
+          Visible = True
+        end>
+    end
+    object EDBImage1: TEDBImage
+      Left = 808
+      Top = 384
+      Width = 265
+      Height = 153
+      DataField = 'blob'
+      DataSource = dm.ds_kendaraan
+      ShrinkToFit = True
+      TabOrder = 4
+      ZoomToFit = False
     end
   end
   object btnLogout: TBitBtn
