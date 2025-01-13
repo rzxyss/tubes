@@ -6,6 +6,7 @@ object dm: Tdm
   Width = 720
   object zq_akun: TZQuery
     Connection = fLogin.zconn
+    OnDeleteError = zq_akunDeleteError
     SQL.Strings = (
       'SELECT * FROM akun ORDER BY id_akun')
     Params = <>
@@ -57,6 +58,7 @@ object dm: Tdm
   end
   object zq_kendaraan: TZQuery
     Connection = fLogin.zconn
+    OnDeleteError = zq_kendaraanDeleteError
     SQL.Strings = (
       'SELECT * FROM kendaraan ORDER BY id_kendaraan')
     Params = <>

@@ -4,7 +4,7 @@ interface
 
 uses
   SysUtils, Classes, DB, ZAbstractRODataset, ZAbstractDataset, ZDataset,
-  SMDBFind, SMDBFltr, frxClass, frxDBSet;
+  SMDBFind, SMDBFltr, frxClass, frxDBSet, Windows;
 
 type
   Tdm = class(TDataModule)
@@ -86,6 +86,10 @@ type
     zq_penyewaantarif: TFloatField;
     zq_penyewaanid_status: TIntegerField;
     zq_penyewaanblob: TBlobField;
+    procedure zq_akunDeleteError(DataSet: TDataSet; E: EDatabaseError;
+      var Action: TDataAction);
+    procedure zq_kendaraanDeleteError(DataSet: TDataSet; E: EDatabaseError;
+      var Action: TDataAction);
   private
     { Private declarations }
   public
@@ -112,6 +116,34 @@ begin
   zq_login.Active := b;
   zq_tarif.Active := b;
   zq_penyewaan.Active := b;
+end;
+
+procedure Tdm.zq_akunDeleteError(DataSet: TDataSet; E: EDatabaseError;
+  var Action: TDataAction);
+  var msg,ref : string;
+begin
+  msg := E.Message;
+
+  ref := LowerCase('Cannot delete or update a parent row');
+   If Pos(ref,LowerCase(msg)) > 0 then begin
+      msg := 'Record tidak dapat dihapus/dirubah karena '+#13#10+
+             'masih mempunyai relasi dengan tabel Sewa';
+  end;
+  MessageBox(0, PChar(msg), 'Delete Error', MB_ICONERROR or MB_OK);
+end;
+
+procedure Tdm.zq_kendaraanDeleteError(DataSet: TDataSet; E: EDatabaseError;
+  var Action: TDataAction);
+var msg,ref : string;
+begin
+  msg := E.Message;
+
+  ref := LowerCase('Cannot delete or update a parent row');
+   If Pos(ref,LowerCase(msg)) > 0 then begin
+      msg := 'Record tidak dapat dihapus/dirubah karena '+#13#10+
+             'masih mempunyai relasi dengan tabel Sewa';
+  end;
+  MessageBox(0, PChar(msg), 'Delete Error', MB_ICONERROR or MB_OK);
 end;
 
 end.
